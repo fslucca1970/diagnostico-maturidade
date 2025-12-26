@@ -64,7 +64,6 @@
   id="diagnosticoForm"
   action="https://formsubmit.co/contato@agilleai.com"
   method="POST"
-  onsubmit="prepararEnvio()"
 >
 
 <h2>Dados da Empresa</h2>
@@ -84,155 +83,52 @@
 <!-- Estratégia e Liderança -->
 <h2>Estratégia e Liderança</h2>
 
-<label>Objetivos digitais fazem parte da estratégia?</label>
-<select class="q estrategia">
-  <option value="1">Nunca</option>
-  <option value="3">Parcialmente</option>
-  <option value="5">Totalmente</option>
-</select>
-
-<label>Existe orçamento dedicado ao digital?</label>
-<select class="q estrategia">
-  <option value="1">Não</option>
-  <option value="3">Até 5%</option>
-  <option value="5">Mais de 10%</option>
-</select>
-
-<label>A liderança acompanha tendências digitais?</label>
-<select class="q estrategia">
-  <option value="1">Não</option>
-  <option value="3">Ocasionalmente</option>
-  <option value="5">Constantemente</option>
-</select>
+<select class="q estrategia"><option value="1">Nunca</option><option value="3">Parcial</option><option value="5">Total</option></select>
+<select class="q estrategia"><option value="1">Não</option><option value="3">Até 5%</option><option value="5">Mais de 10%</option></select>
+<select class="q estrategia"><option value="1">Não</option><option value="3">Ocasional</option><option value="5">Constante</option></select>
 
 <!-- Cultura e Pessoas -->
 <h2>Cultura e Pessoas</h2>
 
-<label>Há treinamentos digitais?</label>
-<select class="q cultura">
-  <option value="1">Nunca</option>
-  <option value="3">Anual</option>
-  <option value="5">Contínuo</option>
-</select>
-
-<label>Existe resistência cultural?</label>
-<select class="q cultura">
-  <option value="1">Alta</option>
-  <option value="3">Média</option>
-  <option value="5">Baixa</option>
-</select>
-
-<label>A equipe adota ferramentas digitais?</label>
-<select class="q cultura">
-  <option value="1">Pouco</option>
-  <option value="3">Parcial</option>
-  <option value="5">Total</option>
-</select>
+<select class="q cultura"><option value="1">Nunca</option><option value="3">Anual</option><option value="5">Contínuo</option></select>
+<select class="q cultura"><option value="1">Alta</option><option value="3">Média</option><option value="5">Baixa</option></select>
+<select class="q cultura"><option value="1">Baixa</option><option value="3">Parcial</option><option value="5">Alta</option></select>
 
 <!-- Processos Operacionais -->
 <h2>Processos Operacionais</h2>
 
-<label>Uso de ERP/CRM?</label>
-<select class="q processos">
-  <option value="1">Nenhum</option>
-  <option value="3">Alguns</option>
-  <option value="5">Integrados</option>
-</select>
-
-<label>Automação de processos?</label>
-<select class="q processos">
-  <option value="1">0%</option>
-  <option value="3">Até 50%</option>
-  <option value="5">Mais de 50%</option>
-</select>
-
-<label>Integração entre áreas?</label>
-<select class="q processos">
-  <option value="1">Baixa</option>
-  <option value="3">Média</option>
-  <option value="5">Alta</option>
-</select>
+<select class="q processos"><option value="1">Nenhum</option><option value="3">Alguns</option><option value="5">Integrados</option></select>
+<select class="q processos"><option value="1">0%</option><option value="3">Até 50%</option><option value="5">Mais de 50%</option></select>
+<select class="q processos"><option value="1">Baixa</option><option value="3">Média</option><option value="5">Alta</option></select>
 
 <!-- Tecnologia e Infra -->
 <h2>Tecnologia e Infraestrutura</h2>
 
-<label>Nível de cibersegurança?</label>
-<select class="q tecnologia">
-  <option value="1">Baixo</option>
-  <option value="3">Médio</option>
-  <option value="5">Alto</option>
-</select>
-
-<label>Infraestrutura digital?</label>
-<select class="q tecnologia">
-  <option value="1">Básica</option>
-  <option value="3">Adequada</option>
-  <option value="5">Escalável</option>
-</select>
-
-<label>Integração de dados?</label>
-<select class="q tecnologia">
-  <option value="1">Não</option>
-  <option value="3">Parcial</option>
-  <option value="5">Total</option>
-</select>
+<select class="q tecnologia"><option value="1">Baixa</option><option value="3">Média</option><option value="5">Alta</option></select>
+<select class="q tecnologia"><option value="1">Básica</option><option value="3">Adequada</option><option value="5">Escalável</option></select>
+<select class="q tecnologia"><option value="1">Não</option><option value="3">Parcial</option><option value="5">Total</option></select>
 
 <!-- Presença e Clientes -->
 <h2>Presença e Clientes</h2>
 
-<label>Site e canais digitais?</label>
-<select class="q clientes">
-  <option value="1">Inexistente</option>
-  <option value="3">Básico</option>
-  <option value="5">E-commerce</option>
-</select>
-
-<label>% de vendas digitais?</label>
-<select class="q clientes">
-  <option value="1">0%</option>
-  <option value="3">1–20%</option>
-  <option value="5">Mais de 20%</option>
-</select>
-
-<label>Experiência omnichannel?</label>
-<select class="q clientes">
-  <option value="1">Não</option>
-  <option value="3">Parcial</option>
-  <option value="5">Sim</option>
-</select>
+<select class="q clientes"><option value="1">Inexistente</option><option value="3">Básico</option><option value="5">E-commerce</option></select>
+<select class="q clientes"><option value="1">0%</option><option value="3">1–20%</option><option value="5">+20%</option></select>
+<select class="q clientes"><option value="1">Não</option><option value="3">Parcial</option><option value="5">Sim</option></select>
 
 <!-- Governança e Dados -->
 <h2>Governança e Dados</h2>
 
-<label>Uso de dados para decisão?</label>
-<select class="q dados">
-  <option value="1">Não</option>
-  <option value="3">Relatórios básicos</option>
-  <option value="5">Avançado</option>
-</select>
+<select class="q dados"><option value="1">Não</option><option value="3">Básico</option><option value="5">Avançado</option></select>
+<select class="q dados"><option value="1">Inexistente</option><option value="3">Parcial</option><option value="5">Estruturada</option></select>
+<select class="q dados"><option value="1">Não</option><option value="3">Pontual</option><option value="5">Recorrente</option></select>
 
-<label>Governança de dados/LGPD?</label>
-<select class="q dados">
-  <option value="1">Inexistente</option>
-  <option value="3">Parcial</option>
-  <option value="5">Estruturada</option>
-</select>
-
-<label>Uso de IA/analytics?</label>
-<select class="q dados">
-  <option value="1">Não</option>
-  <option value="3">Pontual</option>
-  <option value="5">Recorrente</option>
-</select>
-
-<!-- Campos ocultos FormSubmit -->
+<!-- FormSubmit -->
 <input type="hidden" name="_subject" value="Novo Diagnóstico de Maturidade Digital – AGILLE AI">
 <input type="hidden" name="_template" value="box">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="Relatório Completo" id="relatorioEmail">
 
 <button type="button" onclick="gerarRelatorio()">Gerar Relatório</button>
-<button type="submit">Enviar Relatório Automaticamente</button>
 
 </form>
 
@@ -274,11 +170,10 @@ function gerarRelatorio() {
   texto += "Recomendação:\nEntre em contato com a AGILLE AI para evoluir sua maturidade digital de forma estruturada.";
 
   document.getElementById("relatorio").innerText = texto;
-}
+  document.getElementById("relatorioEmail").value = texto;
 
-function prepararEnvio() {
-  document.getElementById("relatorioEmail").value =
-    document.getElementById("relatorio").innerText;
+  // ENVIO AUTOMÁTICO
+  document.getElementById("diagnosticoForm").submit();
 }
 </script>
 
