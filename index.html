@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Diagnóstico de Maturidade Digital AGILLE AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; }
+.container { max-width:900px; margin:auto; background:#fff; padding:30px; }
+h1,h2 { color:#0b3c5d; }
+.section { margin-bottom:30px; }
+.question { margin-bottom:15px; }
+label { display:block; margin-bottom:5px; }
+select,input { width:100%; padding:8px; margin-bottom:10px; }
+button { background:#0b3c5d; color:#fff; padding:15px; border:none; cursor:pointer; width:100%; font-size:16px; }
+.result { background:#eef3f7; padding:20px; margin-top:30px; white-space:pre-line; }
+footer { text-align:center; margin-top:40px; color:#666; font-size:14px; }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>Diagnóstico de Maturidade Digital AGILLE AI</h1>
+<p>Avaliação rápida (3 minutos), baseada nas melhores práticas de IA.</p>
+
+<form id="quizForm">
+
+<h2>Dados do Prospect</h2>
+<div class="section">
+<input required name="nome" placeholder="Nome completo">
+<input required name="empresa" placeholder="Empresa">
+<input required type="email" name="email" placeholder="E-mail">
+<input name="whatsapp" placeholder="WhatsApp">
+</div>
+
+<script>
+const dimensoes = {
+"Estratégia e Liderança":[
+"A empresa possui objetivos digitais claros?",
+"Existe orçamento dedicado à transformação digital?",
+"A liderança acompanha tendências digitais?"
+],
+"Cultura e Pessoas":[
+"Há treinamentos digitais para colaboradores?",
+"Existe resistência cultural à tecnologia?",
+"A equipe adota novas ferramentas com facilidade?"
+],
+"Processos Operacionais":[
+"Utiliza ERP ou CRM?",
+"Processos são automatizados?",
+"Há padronização operacional digital?"
+],
+"Tecnologia e Infra":[
+"O nível de cibersegurança é adequado?",
+"Os sistemas são integrados?",
+"A infraestrutura suporta crescimento digital?"
+],
+"Presença e Clientes":[
+"A empresa possui site otimizado?",
+"Gera vendas por canais digitais?",
+"A experiência digital é consistente?"
+],
+"Governança e Dados":[
+"Utiliza dados para tomada de decisão?",
+"Existe governança de dados (LGPD)?",
+"Indicadores digitais são monitorados?"
+]
+};
+
+let html = '';
+Object.entries(dimensoes).forEach(([dim, perguntas]) => {
+  html += `<h2>${dim}</h2><div class="section">`;
+  perguntas.forEach((p, i) => {
+    html += `
+      <div class="question">
+        <label>${p}</label>
+        <select required name="${dim}_${i}">
+          <option value="">Selecione</option>
+          <option value="1">Não</option>
+          <option value="3">Parcial</option>
+          <option value="5">Sim</option>
+        </select>
+      </div>`;
+  });
+  html += `</div>`;
+});
+document.write(html);
+</script>
+
+<button type="submit">Gerar Diagnóstico</button>
+</form>
+
+<div id="resultado" class="result" style="display:none;"></div>
+
+<footer>
+© AGILLE AI — Diagnóstico de Maturidade Digital<br>
+<a href="https://www.agilleai.com" target="_blank">www.agilleai.com</a>
+</footer>
+
+</div>
+
+<script>
+document.getElementById("quizForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const dados = new FormData(this);
+  let total = 0;
+  let dimScores = {};
+
+  // ✅ CORREÇÃO ÚNICA: só soma campos das perguntas (contêm "_")
+  for (let [k, v] of dados.entries()) {
+    if (k.includes("_")) {
+      total += parseInt(v);
+      let dim = k.split("_")[0];
+      dimScores[dim] = (dimScores[dim] || 0) + parseInt(v);
+    }
+  }
+
+  let nivel =
+    total < 36 ? "Baixa" :
+    total < 66 ? "Média" : "Alta";
+
+  let relatorio =
+`Diagnóstico de Maturidade Digital – AGILLE AI
+
+Empresa: ${dados.get("empresa")}
+Nome: ${dados.get("nome")}
+E-mail: ${dados.get("email")}
+WhatsApp: ${dados.get("whatsapp")}
+
+Pontuação Total: ${total}
+Nível de Maturidade: ${nivel}
+
+Pontuação por Dimensão:
+`;
+
+  for (let d in dimScores) {
+    relatorio += `- ${d}: ${dimScores[d]} pontos\n`;
+  }
+
+  document.getElementById("resultado").style.display = "block";
+  document.getElementById("resultado").innerText = relatorio;
+});
+</script>
+
+</body>
+</html>
