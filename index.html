@@ -136,6 +136,15 @@
 
 <script>
 function gerarRelatorio() {
+
+  const form = document.getElementById("diagnosticoForm");
+
+  // 🔒 BLOQUEIA se houver qualquer campo obrigatório vazio
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
   const dimensoes = {
     "Estratégia e Liderança": "estrategia",
     "Cultura e Pessoas": "cultura",
@@ -166,9 +175,7 @@ function gerarRelatorio() {
   document.getElementById("relatorio").innerText = texto;
   document.getElementById("relatorioEmail").value = texto;
 
-  document.getElementById("diagnosticoForm").submit();
+  // 🚀 Envio automático somente após validação completa
+  form.submit();
 }
 </script>
-
-</body>
-</html>
