@@ -155,5 +155,45 @@ function gerarRelatorio() {
 
   const dimensoes = {
     "Estratégia e Liderança": "estrategia",
-    "Cult
+    "Cultura e Pessoas": "cultura",
+    "Processos Operacionais": "processos",
+    "Tecnologia e Infra": "tecnologia",
+    "Presença e Clientes": "clientes",
+    "Governança e Dados": "dados"
+  };
+
+  let texto = "Diagnóstico de Maturidade Digital – AGILLE AI\n\n";
+  let total = 0;
+
+  for (let nome in dimensoes) {
+    let soma = 0;
+    document.querySelectorAll("." + dimensoes[nome]).forEach(el => {
+      soma += parseInt(el.value);
+    });
+    total += soma;
+    texto += `${nome}: ${soma} pontos\n`;
+  }
+
+  let nivel = total <= 42 ? "Baixa" : total <= 66 ? "Média" : "Alta";
+
+  texto += `\nPontuação Total: ${total}\n`;
+  texto += `Nível de Maturidade: ${nivel}\n\n`;
+
+  if (tipoEmpresa === "industrial") {
+    texto += "Recomendação:\nPara empresas industriais, a evolução da maturidade digital passa por automação de processos, integração entre sistemas, uso de dados operacionais e eficiência produtiva. A AGILLE AI apoia indústrias nessa jornada de forma estruturada e orientada a resultados.";
+  } else {
+    texto += "Recomendação:\nEntre em contato com a AGILLE AI para evoluir sua maturidade digital de forma estruturada.";
+  }
+
+  document.getElementById("relatorio").innerText = texto;
+  document.getElementById("relatorioEmail").value = texto;
+
+  setTimeout(() => {
+    form.submit();
+  }, 12000);
+}
+</script>
+
+</body>
+</html>
 
