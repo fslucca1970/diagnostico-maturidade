@@ -80,6 +80,13 @@
 <label>WhatsApp *</label>
 <input type="tel" name="WhatsApp" required placeholder="DDD + número">
 
+<label>Tipo de Empresa *</label>
+<select id="tipoEmpresa" name="Tipo de Empresa" required>
+  <option value="">Selecione</option>
+  <option value="industrial">Indústria</option>
+  <option value="geral">Serviços / Comércio</option>
+</select>
+
 <!-- Estratégia e Liderança -->
 <h2>Estratégia e Liderança</h2>
 <select class="q estrategia" required><option value="1">Nunca</option><option value="3">Parcial</option><option value="5">Total</option></select>
@@ -139,46 +146,14 @@ function gerarRelatorio() {
 
   const form = document.getElementById("diagnosticoForm");
 
-  // 🔒 BLOQUEIA se houver qualquer campo obrigatório vazio
   if (!form.checkValidity()) {
     form.reportValidity();
     return;
   }
 
+  const tipoEmpresa = document.getElementById("tipoEmpresa").value;
+
   const dimensoes = {
     "Estratégia e Liderança": "estrategia",
-    "Cultura e Pessoas": "cultura",
-    "Processos Operacionais": "processos",
-    "Tecnologia e Infra": "tecnologia",
-    "Presença e Clientes": "clientes",
-    "Governança e Dados": "dados"
-  };
+    "Cult
 
-  let texto = "Diagnóstico de Maturidade Digital – AGILLE AI\n\n";
-  let total = 0;
-
-  for (let nome in dimensoes) {
-    let soma = 0;
-    document.querySelectorAll("." + dimensoes[nome]).forEach(el => {
-      soma += parseInt(el.value);
-    });
-    total += soma;
-    texto += `${nome}: ${soma} pontos\n`;
-  }
-
-  let nivel = total <= 42 ? "Baixa" : total <= 66 ? "Média" : "Alta";
-
-  texto += `\nPontuação Total: ${total}\n`;
-  texto += `Nível de Maturidade: ${nivel}\n\n`;
-  texto += "Recomendação:\nEntre em contato com a AGILLE AI para evoluir sua maturidade digital de forma estruturada.";
-
-  document.getElementById("relatorio").innerText = texto;
-  document.getElementById("relatorioEmail").value = texto;
-
-  // 🚀 Envio automático somente após validação completa
- setTimeout(() => {
-  form.submit();
-}, 12000);
-
-}
-</script>
