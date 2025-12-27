@@ -176,6 +176,9 @@ function gerarRelatorio() {
   document.getElementById("relatorioEmail").value = texto;
 
   // 🚀 Envio automático somente após validação completa
+ setTimeout(() => {
   form.submit();
+}, 8000);
+
 }
 </script>
